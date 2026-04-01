@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IDYM | Ingeniería, Diseño y Mantenimiento</title>
   <meta name="description" content="IDYM ofrece soluciones profesionales en proyectos eléctricos, obra civil, telecomunicaciones, tierras físicas, pararrayos, CCTV, cableado estructurado, gestoría ante CFE y paneles solares." />
+
   <style>
+    /* =========================================================
+       VARIABLES GLOBALES
+       ========================================================= */
     :root {
       --bg: #0b1220;
       --bg-2: #101a2f;
@@ -23,6 +27,9 @@
       --max: 1180px;
     }
 
+    /* =========================================================
+       RESET BÁSICO
+       ========================================================= */
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -33,14 +40,112 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    iframe {
+      border: 0;
+      width: 100%;
+    }
+
+    /* =========================================================
+       UTILIDADES
+       ========================================================= */
     .container {
       width: min(100% - 2rem, var(--max));
       margin: 0 auto;
     }
 
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-light {
+      background: var(--section);
+    }
+
+    .eyebrow {
+      color: var(--brand-dark);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: .45rem;
+      font-size: .85rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2,
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.1;
+    }
+
+    .section-head p {
+      margin: .8rem 0 0;
+      color: var(--muted);
+      max-width: 65ch;
+    }
+
+    .card,
+    .project-card,
+    .contact-card,
+    .form-card,
+    .info-contacto {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .95rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: .2s ease;
+      font: inherit;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: var(--white);
+      box-shadow: 0 12px 24px rgba(217, 119, 6, .25);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,.18);
+      color: var(--white);
+      background: rgba(255,255,255,.08);
+    }
+
+    /* =========================================================
+       BARRA SUPERIOR
+       ========================================================= */
     .topbar {
       background: var(--bg);
       color: rgba(255,255,255,.85);
@@ -64,6 +169,9 @@
       align-items: center;
     }
 
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
     .navbar {
       position: sticky;
       top: 0;
@@ -91,9 +199,8 @@
     }
 
     .logo-mark {
-      width: 200px;
-      height: 128px;
-      border-radius: 16px;
+      width: 96px;
+      height: 96px;
       overflow: hidden;
       flex: 0 0 auto;
       background: transparent;
@@ -156,42 +263,13 @@
     .menu-toggle span { top: 22px; }
     .menu-toggle::before { top: 15px; }
     .menu-toggle::after { top: 29px; }
-
     .menu-toggle.active span { opacity: 0; }
     .menu-toggle.active::before { transform: rotate(45deg); top: 22px; }
     .menu-toggle.active::after { transform: rotate(-45deg); top: 22px; }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      padding: .95rem 1.25rem;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: .2s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font: inherit;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-      color: var(--white);
-      box-shadow: 0 12px 24px rgba(217, 119, 6, .25);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      border-color: rgba(255,255,255,.18);
-      color: var(--white);
-      background: rgba(255,255,255,.08);
-    }
-
+    /* =========================================================
+       HERO
+       ========================================================= */
     .hero {
       background:
         radial-gradient(circle at top right, rgba(14,165,233,.14), transparent 30%),
@@ -207,17 +285,6 @@
       grid-template-columns: 1.12fr .88fr;
       gap: 2rem;
       align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      padding: .45rem .8rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.9);
-      font-size: .92rem;
-      margin-bottom: 1rem;
     }
 
     .hero h1 {
@@ -269,11 +336,12 @@
     }
 
     .hero-card img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 18px;
-    }
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* 🔥 clave */
+  background: #0b1220; /* opcional para relleno elegante */
+  border-radius: 18px;
+}
 
     .hero-card-grid {
       display: grid;
@@ -288,68 +356,29 @@
       padding: .95rem;
     }
 
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-light { background: var(--section); }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .eyebrow {
-      color: var(--brand-dark);
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      margin-bottom: .45rem;
-      font-size: .85rem;
-    }
-
-    .section h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      line-height: 1.1;
-    }
-
-    .section-head p {
-      margin: .8rem 0 0;
-      color: var(--muted);
-      max-width: 65ch;
-    }
-
+    /* =========================================================
+       GRIDS Y TARJETAS
+       ========================================================= */
     .grid-4,
     .grid-3,
-    .projects-grid,
-    .why-grid {
+    .projects-grid {
       display: grid;
       gap: 1.25rem;
     }
 
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .why-grid { grid-template-columns: repeat(3, 1fr); }
+    .grid-3 { grid-template-columns: repeat(4, 1fr); }
     .projects-grid { grid-template-columns: repeat(2, 1fr); }
-
-    .card,
-    .project-card,
-    .contact-card,
-    .form-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
-    }
 
     .card {
       padding: 1.4rem;
       height: 100%;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, .08);
     }
 
     .icon {
@@ -373,75 +402,14 @@
 
     .card p,
     .project-card p,
-    .list li,
-    .contact-list li {
+    .contact-list li,
+    .bloque p {
       color: var(--muted);
     }
 
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: .9rem;
-    }
-
-    .list li {
-      display: flex;
-      gap: .75rem;
-      align-items: start;
-    }
-
-    .check {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      display: inline-grid;
-      place-items: center;
-      background: rgba(14,165,233,.12);
-      color: var(--accent);
-      font-size: .9rem;
-      flex: 0 0 auto;
-      margin-top: .1rem;
-    }
-
-    .about-wrap {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .about-box {
-      background: linear-gradient(160deg, #0b1220, #162033);
-      color: var(--white);
-      border-radius: 26px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .about-box p { color: rgba(255,255,255,.85); }
-
-    .numbers {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.4rem;
-    }
-
-    .number-card {
-      border-radius: 18px;
-      background: rgba(255,255,255,.08);
-      padding: 1rem;
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .number-card strong {
-      display: block;
-      font-size: 1.5rem;
-      margin-bottom: .2rem;
-    }
-
+    /* =========================================================
+       PROYECTOS
+       ========================================================= */
     .project-card {
       overflow: hidden;
       transition: transform .25s ease, box-shadow .25s ease;
@@ -461,7 +429,6 @@
       width: 100%;
       height: 320px;
       object-fit: cover;
-      display: block;
       transition: transform .35s ease;
     }
 
@@ -500,28 +467,86 @@
       font-weight: 700;
     }
 
-    .cta {
-      background: linear-gradient(135deg, #0b1220, #172554);
+    /* =========================================================
+       NOSOTROS
+       ========================================================= */
+    .nosotros {
+      padding: 5rem 0;
+      background: linear-gradient(160deg, #0b1220, #162033);
       color: var(--white);
-      border-radius: 28px;
-      padding: 2rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
     }
 
-    .cta p { color: rgba(255,255,255,.84); margin: .5rem 0 0; }
+    .nosotros .container {
+      display: block;
+    }
 
+    .nosotros .titulo {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin: 0 0 .75rem;
+    }
+
+    .frase {
+      text-align: center;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,.92);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .contenido-nosotros {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .video-container {
+      max-width: 100%;
+    }
+
+    .video-container video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .info {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .bloque {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 1.25rem;
+    }
+
+    .bloque h3 {
+      color: #f5c542;
+      margin: 0 0 .75rem;
+    }
+
+    .bloque p {
+      color: rgba(255,255,255,.84);
+      margin: 0;
+    }
+
+    /* =========================================================
+       CONTACTO
+       ========================================================= */
     .contact-wrap {
       display: grid;
       grid-template-columns: .95fr 1.05fr;
       gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .contact-card,
-    .form-card {
+    .form-card,
+    .info-contacto {
       padding: 1.5rem;
     }
 
@@ -531,6 +556,63 @@
       margin: 1rem 0 0;
       display: grid;
       gap: 1rem;
+    }
+
+    .contacto-contenido {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .info-contacto {
+      background: var(--bg);
+      color: var(--white);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .info-contacto h3 {
+      margin: 0 0 1.2rem;
+      color: #f5c542;
+      font-size: 1.4rem;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .icono {
+      font-size: 1.15rem;
+      line-height: 1;
+      margin-top: .2rem;
+    }
+
+    .item p {
+      margin: 0;
+      color: rgba(255,255,255,.86);
+    }
+
+    .mapa {
+      min-height: 320px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .mapa iframe {
+      height: 100%;
+      min-height: 320px;
     }
 
     form {
@@ -544,7 +626,8 @@
       gap: 1rem;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: .95rem 1rem;
       border-radius: 14px;
@@ -558,7 +641,8 @@
       resize: vertical;
     }
 
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
       outline: 2px solid rgba(14,165,233,.18);
       border-color: var(--accent);
     }
@@ -567,6 +651,24 @@
       font-size: .9rem;
       color: var(--muted);
       margin: -.2rem 0 0;
+    }
+
+    /* =========================================================
+       FOOTER Y FLOAT
+       ========================================================= */
+    .footer {
+      background: var(--bg);
+      color: rgba(255,255,255,.8);
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .whatsapp-float {
@@ -590,32 +692,22 @@
       transform: translateY(-3px);
     }
 
-    .footer {
-      background: var(--bg);
-      color: rgba(255,255,255,.8);
-      padding: 2rem 0;
-      margin-top: 4rem;
-    }
-
-    .footer .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
     @media (max-width: 1024px) {
       .hero-grid,
-      .about-wrap,
+      .projects-grid,
       .contact-wrap,
-      .projects-grid {
+      .contacto-contenido,
+      .contenido-nosotros {
         grid-template-columns: 1fr;
       }
 
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .grid-3,
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-4,
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 860px) {
@@ -649,12 +741,10 @@
     @media (max-width: 720px) {
       .hero { padding-top: 4rem; }
       .hero-stats,
-      .numbers,
       .form-grid,
       .hero-card-grid,
       .grid-4,
-      .grid-3,
-      .why-grid {
+      .grid-3 {
         grid-template-columns: 1fr;
       }
 
@@ -666,12 +756,15 @@
       }
 
       .hero h1 { max-width: none; }
-      .logo-mark { width: 56px; height: 56px; }
+      .logo-mark { width: 64px; height: 64px; }
       .logo-text span { display: none; }
     }
   </style>
 </head>
 <body>
+  <!-- =======================================================
+       BARRA SUPERIOR
+       ======================================================= -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-info">
@@ -686,15 +779,18 @@
     </div>
   </div>
 
+  <!-- =======================================================
+       NAVBAR
+       ======================================================= -->
   <header class="navbar">
     <div class="container">
       <a class="logo" href="#inicio">
         <div class="logo-mark">
-          <img src="logo-idym.png" alt="Logo IDYM" />
+          <img src="logo_idym.png" alt="Logo IDYM" />
         </div>
         <div class="logo-text">
           <strong>IDYM</strong>
-          <span>Ingeniería, Diseño y Mantenimiento</span>
+          <span>Ingeniería, Diseño y Mantenimiento S.A. de C.V.</span>
         </div>
       </a>
 
@@ -711,14 +807,17 @@
     </div>
   </header>
 
+  <!-- =======================================================
+       HERO PRINCIPAL
+       ======================================================= -->
   <section class="hero" id="inicio">
     <div class="container hero-grid">
       <div>
-        <div class="badge">Especialistas en soluciones eléctricas e infraestructura</div>
-        <h1>Proyectos eléctricos con ejecución profesional y resultados confiables.</h1>
+        <h1>Energía confiable. Ingeniería que transforma.</h1>
         <p>
-          En IDYM desarrollamos instalaciones eléctricas, obra civil, telecomunicaciones y mantenimiento con enfoque en seguridad, cumplimiento normativo y continuidad operativa para empresas y proyectos industriales.
+          Somos especialistas en mantenimiento eléctrico, diseño y proyectos en baja y media tensión. Brindamos soluciones seguras, eficientes y a la medida de cada cliente.
         </p>
+
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Cotiza tu proyecto</a>
           <a class="btn btn-secondary" href="#trabajos">Ver trabajos realizados</a>
@@ -741,8 +840,8 @@
       </div>
 
       <div class="hero-card">
-        <img src="trabajo0.jpeg" alt="PROYECTO" />
-        <div class="hero-card-grid">
+        <img src="trabajo0.png" alt="Proyecto realizado por IDYM" />
+        <!--<div class="hero-card-grid">
           <div class="mini-card">
             <strong>Obra y montaje</strong>
             <div>Instalación profesional en campo.</div>
@@ -750,21 +849,22 @@
           <div class="mini-card">
             <strong>Experiencia real</strong>
             <div>Trabajos visibles y comprobables.</div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
   </section>
 
+  <!-- =======================================================
+       SERVICIOS PRINCIPALES
+       ======================================================= -->
   <section class="section section-light" id="servicios">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="eyebrow">Servicios</div>
           <h2>Soluciones integrales para infraestructura eléctrica y tecnológica</h2>
-          <p>
-            Diseñamos, ejecutamos y damos mantenimiento a proyectos con enfoque técnico, cumplimiento y calidad operativa.
-          </p>
+          <p>Diseñamos, ejecutamos y damos mantenimiento a proyectos con enfoque técnico, cumplimiento y calidad operativa.</p>
         </div>
       </div>
 
@@ -772,30 +872,33 @@
         <article class="card">
           <div class="icon">⚡</div>
           <h3>Diseño y proyectos eléctricos</h3>
-          <p>Soluciones seguras y eficientes en baja y media tensión, alineadas con normas y requerimientos técnicos.</p>
+          <p>Desarrollamos soluciones eléctricas eficientes, seguras y adaptadas a cada necesidad, cumpliendo con normas nacionales e internacionales.</p>
         </article>
 
         <article class="card">
           <div class="icon">🏗️</div>
           <h3>Obra civil, eléctrica y mantenimiento</h3>
-          <p>Instalaciones, adecuaciones y servicios de mantenimiento para asegurar continuidad y desempeño.</p>
+          <p>Instalaciones seguras y eficientes en baja y media tensión.</p>
         </article>
 
         <article class="card">
           <div class="icon">🛡️</div>
           <h3>Tierras físicas y pararrayos</h3>
-          <p>Protección de instalaciones mediante sistemas de puesta a tierra y protección contra descargas atmosféricas.</p>
+          <p>Protegemos tus instalaciones contra descargas atmosféricas con sistemas certificados y mantenimiento especializado.</p>
         </article>
 
         <article class="card">
           <div class="icon">📋</div>
           <h3>Dictamen UVIE</h3>
-          <p>Acompañamiento técnico para verificación de instalaciones eléctricas y cumplimiento normativo.</p>
+          <p>Verificación y certificación eléctrica conforme a las normas oficiales mexicanas, garantizando seguridad y cumplimiento ante CFE.</p>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- =======================================================
+       SERVICIOS COMPLEMENTARIOS
+       ======================================================= -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -806,25 +909,28 @@
       </div>
 
       <div class="grid-3">
-        <article class="card"><h3>Obra civil</h3><p>Construcción y adecuaciones como base de proyectos eléctricos e industriales.</p></article>
-        <article class="card"><h3>Telecomunicaciones</h3><p>Infraestructura moderna para conectividad estable y alto rendimiento.</p></article>
+        <article class="card"><h3>Obra civil</h3><p>Construimos con precisión la base de cada proyecto eléctrico.</p></article>
+        <article class="card"><h3>Telecomunicaciones</h3><p>Conectamos redes modernas con tecnología confiable y de alto rendimiento.</p></article>
         <article class="card"><h3>Cableado estructurado</h3><p>Voz y datos con orden, escalabilidad y desempeño confiable.</p></article>
-        <article class="card"><h3>CCTV</h3><p>Sistemas de videovigilancia para monitoreo continuo y seguridad operativa.</p></article>
-        <article class="card"><h3>Gestorías ante CFE</h3><p>Soporte técnico y documental para trámites y procesos relacionados con energía.</p></article>
-        <article class="card"><h3>Paneles solares</h3><p>Energía más eficiente y sostenible para reducir costos a mediano y largo plazo.</p></article>
+        <article class="card"><h3>CCTV</h3><p>Seguridad inteligente con monitoreo continuo y sistemas de alta definición.</p></article>
+        <article class="card"><h3>Gestorías ante CFE</h3><p>Tramitamos y gestionamos procesos eléctricos con respaldo técnico certificado.</p></article>
+        <article class="card"><h3>Paneles solares</h3><p>Energía limpia y sostenible para reducir costos y cuidar el planeta.</p></article>
+        <article class="card"><h3>Proveedores CFE Micrositio</h3><p>Certificados como diseñadores, desarrolladores y constructores ante CFE.</p></article>
+        <article class="card"><h3>Proyectos Eléctricos</h3><p>Diseñamos soluciones bajo normas internacionales para máxima eficiencia.</p></article>
       </div>
     </div>
   </section>
 
+  <!-- =======================================================
+       TRABAJOS REALIZADOS
+       ======================================================= -->
   <section class="section section-light" id="trabajos">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="eyebrow">Trabajos realizados</div>
           <h2>Experiencia real en campo</h2>
-          <p>
-            Estas imágenes muestran parte del trabajo de IDYM en instalación, adecuación, cableado, montaje e infraestructura técnica. Esta sección le da mucha más credibilidad a tu sitio porque enseña evidencia real de ejecución.
-          </p>
+          <p>Estas imágenes muestran parte del trabajo de IDYM en instalación, adecuación, cableado, montaje e infraestructura técnica.</p>
         </div>
       </div>
 
@@ -880,117 +986,117 @@
     </div>
   </section>
 
-  <section class="section" id="nosotros">
-    <div class="container about-wrap">
-      <div class="about-box">
-        <div class="eyebrow" style="color:#fbbf24;">Nosotros</div>
-        <h2 style="margin-top:0;">Ingeniería que convierte la energía en confianza</h2>
-        <p>
-          IDYM es una empresa enfocada en soluciones eléctricas, infraestructura y mantenimiento, con una propuesta basada en calidad técnica, ejecución profesional y atención cercana al cliente.
-        </p>
-        <div class="numbers">
-          <div class="number-card">
-            <strong>+9</strong>
-            <span>Líneas de servicio</span>
-          </div>
-          <div class="number-card">
-            <strong>BT / MT</strong>
-            <span>Especialización técnica</span>
-          </div>
-          <div class="number-card">
-            <strong>Campo</strong>
-            <span>Experiencia real visible</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>¿Por qué esta versión se ve más profesional?</h3>
-        <ul class="list">
-          <li><span class="check">✓</span><span>Integra el nuevo logo para reforzar identidad visual y seriedad de marca.</span></li>
-          <li><span class="check">✓</span><span>Muestra trabajos reales para generar confianza inmediata en clientes potenciales.</span></li>
-          <li><span class="check">✓</span><span>Tiene mejor jerarquía visual, mensajes más claros y botones visibles.</span></li>
-          <li><span class="check">✓</span><span>Ordena servicios y experiencia de forma comercial, técnica y moderna.</span></li>
-          <li><span class="check">✓</span><span>Está lista para crecer con testimonios, portafolio, WhatsApp o formulario funcional.</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-light">
+  <!-- =======================================================
+       NOSOTROS
+       ======================================================= -->
+  <section id="nosotros" class="nosotros">
     <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Ventajas</div>
-          <h2>Lo que tus clientes quieren ver</h2>
-        </div>
-      </div>
+      <h2 class="titulo">Nosotros</h2>
+      <p class="frase">Creemos que la energía es el motor que impulsa el desarrollo.</p>
 
-      <div class="why-grid">
-        <article class="card">
-          <h3>Imagen sólida</h3>
-          <p>Una presencia visual más seria transmite mayor confianza a clientes empresariales e industriales.</p>
-        </article>
-        <article class="card">
-          <h3>Evidencia real</h3>
-          <p>Mostrar trabajos reales hace que el visitante perciba capacidad técnica y experiencia comprobable.</p>
-        </article>
-        <article class="card">
-          <h3>Mejor conversión</h3>
-          <p>Una propuesta clara y bien presentada aumenta la posibilidad de recibir mensajes y solicitudes de cotización.</p>
-        </article>
+      <div class="contenido-nosotros">
+        <div class="video-container">
+          <video controls preload="metadata">
+            <source src="video.mp4" type="video/mp4" />
+            Tu navegador no soporta video.
+          </video>
+        </div>
+
+        <div class="info">
+          <div class="bloque">
+            <h3>Misión</h3>
+            <p>Proporcionar servicios eléctricos y de ingeniería de alta calidad, enfocados en la seguridad, eficiencia y cumplimiento normativo, para garantizar la continuidad y confiabilidad de las operaciones de nuestros clientes, contribuyendo al desarrollo industrial y tecnológico del país.</p>
+          </div>
+
+          <div class="bloque">
+            <h3>Visión</h3>
+            <p>Ser una empresa líder en soluciones eléctricas e integrales de ingeniería, reconocida por la excelencia técnica, innovación y compromiso con la seguridad, impulsando un futuro más eficiente, sostenible y conectado.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="cta">
-        <div>
-          <h2 style="margin:0;">¿Listo para actualizar la web de IDYM?</h2>
-          <p>Con este diseño ya tienes una base mucho más profesional, seria y orientada a generar confianza y cotizaciones.</p>
-        </div>
-        <a class="btn btn-primary" href="#contacto">Solicitar información</a>
-      </div>
-    </div>
-  </section>
-
+  <!-- =======================================================
+       CONTACTO
+       ======================================================= -->
   <section class="section section-light" id="contacto">
-    <div class="container contact-wrap">
-      <div class="contact-card">
-        <div class="eyebrow">Contacto</div>
-        <h2>Hablemos de tu proyecto</h2>
-        <p>Puedes conectar este bloque con WhatsApp, FormSubmit, tu correo empresarial o tu backend actual.</p>
-        <ul class="contact-list">
-          <li><strong>Dirección:</strong> Cerro Espinoso Mza 91 34, Buenavista, Iztapalapa, Ciudad de México, C.P. 09700</li>
-          <li><strong>Teléfono:</strong> <a href="tel:5538001019">55 3800 1019</a></li>
-          <li><strong>Correo:</strong> <a href="mailto:servicios@idym.com.mx">servicios@idym.com.mx</a></li>
-          <li><strong>Facturación:</strong> <a href="mailto:facturacion@idym.com.mx">facturacion@idym.com.mx</a></li>
-        </ul>
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-card">
+          <div class="eyebrow">Contacto</div>
+          <h2>Hablemos de tu proyecto</h2>
+          <p>Puedes conectar este bloque con WhatsApp, FormSubmit, tu correo empresarial o tu backend actual.</p>
+
+          <ul class="contact-list">
+            <li><strong>Dirección:</strong> Cerro Espinoso Mza 91 34, Buenavista, Iztapalapa, Ciudad de México, C.P. 09700</li>
+            <li><strong>Teléfono:</strong> <a href="tel:5538001019">55 3800 1019</a></li>
+            <li><strong>Correo:</strong> <a href="mailto:servicios@idym.com.mx">servicios@idym.com.mx</a></li>
+            <li><strong>Facturación:</strong> <a href="mailto:facturacion@idym.com.mx">facturacion@idym.com.mx</a></li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <h3>Solicita una cotización</h3>
+
+          <form action="https://formsubmit.co/servicios@idym.com.mx" method="POST">
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="Nueva solicitud de cotización desde IDYM" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="form-grid">
+              <input type="text" name="nombre" placeholder="Nombre" required />
+              <input type="text" name="empresa" placeholder="Empresa" />
+            </div>
+
+            <div class="form-grid">
+              <input type="email" name="correo" placeholder="Correo electrónico" required />
+              <input type="tel" name="telefono" placeholder="Teléfono" required />
+            </div>
+
+            <textarea name="mensaje" placeholder="Cuéntanos qué servicio necesitas" required></textarea>
+            <p class="form-note">Este formulario puede enviar mensajes a tu correo usando FormSubmit. Si luego quieres, lo cambiamos por WhatsApp o por tu propio backend.</p>
+            <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+          </form>
+        </div>
       </div>
 
-      <div class="form-card">
-        <h3>Solicita una cotización</h3>
-        <form action="https://formsubmit.co/servicios@idym.com.mx" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Nueva solicitud de cotización desde IDYM">
-          <input type="hidden" name="_template" value="table">
-          <div class="form-grid">
-            <input type="text" name="nombre" placeholder="Nombre" required />
-            <input type="text" name="empresa" placeholder="Empresa" />
+      <div class="contacto-contenido">
+        <div class="info-contacto">
+          <h3>Ubicación</h3>
+
+          <div class="item">
+            <span class="icono">📍</span>
+            <p>Cerro espinoso Mza 91 34 BUENAVISTA IZTAPALAPA, CIUDAD DE MEXICO CIUDAD DE MEXICO 09700</p>
           </div>
-          <div class="form-grid">
-            <input type="email" name="correo" placeholder="Correo electrónico" required />
-            <input type="tel" name="telefono" placeholder="Teléfono" required />
+
+          <div class="item">
+            <span class="icono">📞</span>
+            <p>55 3800 1019</p>
           </div>
-          <textarea name="mensaje" placeholder="Cuéntanos qué servicio necesitas" required></textarea>
-          <p class="form-note">Este formulario puede enviar mensajes a tu correo usando FormSubmit. Si luego quieres, lo cambiamos por WhatsApp o por tu propio backend.</p>
-          <button class="btn btn-primary" type="submit">Enviar solicitud</button>
-        </form>
+
+          <div class="item">
+            <span class="icono">✉️</span>
+            <p>servicios@idym.com.mx</p>
+            <p>facturacion@idym.com.mx</p>
+          </div>
+        </div>
+
+        <div class="mapa">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d120416.54877189964!2d-99.107215!3d19.411665!3m2!1i1024!2i768!4f13.1!2m1!1sCerro%20espinoso%20Mza%2091%2034%20BUENAVISTA%20IZTAPALAPA%2C%20CIUDAD%20DE%20MEXICO%20CIUDAD%20DE%20MEXICO%2009700!5e0!3m2!1ses-419!2sus!4v1775014438805!5m2!1ses-419!2sus"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de ubicación de IDYM">
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
   <footer class="footer">
     <div class="container">
       <div>© 2026 IDYM Ingeniería, Diseño y Mantenimiento S.A. de C.V.</div>
@@ -998,8 +1104,15 @@
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/525538001019?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">💬</a>
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/525538001019?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp">💬</a>
 
+  <!-- MENÚ MÓVIL -->
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
