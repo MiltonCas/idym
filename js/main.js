@@ -27,3 +27,39 @@ if (menuButton && nav) {
     if (window.innerWidth > 980) closeMenu();
   });
 }
+
+
+
+
+const socialMenu = document.getElementById("socialMenu");
+const socialToggle = document.getElementById("socialToggle");
+
+if (socialMenu && socialToggle) {
+/*  socialToggle.addEventListener("click", () => {
+    const isOpen = socialMenu.classList.toggle("active");
+
+    socialToggle.setAttribute("aria-expanded", String(isOpen));
+    socialToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Cerrar redes sociales" : "Abrir redes sociales"
+    );
+  }); */
+
+  document.addEventListener("click", (event) => {
+    const clickedInside = socialMenu.contains(event.target);
+
+    if (!clickedInside) {
+      socialMenu.classList.remove("active");
+      socialToggle.setAttribute("aria-expanded", "false");
+      socialToggle.setAttribute("aria-label", "Abrir redes sociales");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      socialMenu.classList.remove("active");
+      socialToggle.setAttribute("aria-expanded", "false");
+      socialToggle.setAttribute("aria-label", "Abrir redes sociales");
+    }
+  });
+}
