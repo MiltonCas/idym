@@ -162,6 +162,74 @@ button,input,textarea{font:inherit}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
 }
+
+/* =========================================================
+   SECCIÓN DE CONTACTO
+   ========================================================= */
+
+.contact-section {
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy),
+      var(--navy-2)
+    );
+  color: #ffffff;
+  padding: 6rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contact-copy > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.74);
+  max-width: 560px;
+  font-size: 1.05rem;
+}
+
+.contact-details {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.contact-details a,
+.contact-details div {
+  display: grid;
+  gap: 0.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.contact-details span {
+  color: var(--yellow);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+}
+
+/* =========================================================
+   TARJETA DE WHATSAPP
+   ========================================================= */
+
+.contact-card-form {
+  width: 100%;
+  max-width: 560px;
+  margin-left: auto;
+  padding: 2.2rem;
+
+  background: #ffffff;
+  color: var(--ink);
+
+  border-radius: 28px;
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.22);
+}
+
 .whatsapp-contact {
   display: flex;
   flex-direction: column;
@@ -169,53 +237,84 @@ button,input,textarea{font:inherit}
 }
 
 .contact-label {
-  display: inline-block;
+  display: inline-flex;
   width: fit-content;
-  margin-bottom: .8rem;
-  padding: .35rem .7rem;
+
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+
   border-radius: 999px;
-  background: rgba(32, 184, 90, .12);
-  color: #168a45;
-  font-size: .78rem;
-  font-weight: 800;
-  letter-spacing: .08em;
+
+  background: rgba(32, 184, 90, 0.13);
+  color: #148544;
+
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .whatsapp-contact h3 {
-  margin: 0 0 .8rem;
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
-  line-height: 1.15;
+  margin: 0 0 1rem;
+
+  max-width: 430px;
+
   color: var(--navy);
+
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
 .whatsapp-contact > p {
   margin: 0;
+
+  max-width: 440px;
+
   color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.75;
 }
 
 .whatsapp-template {
-  margin: 1.5rem 0;
-  padding: 1.2rem;
+  margin: 1.6rem 0;
+  padding: 1.3rem 1.4rem;
+
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
+
   background: var(--soft);
 }
 
 .whatsapp-template strong {
+  display: block;
+  margin-bottom: 0.75rem;
+
   color: var(--navy);
+  font-size: 1rem;
 }
 
 .whatsapp-template ul {
-  margin: .8rem 0 0;
+  margin: 0;
   padding-left: 1.2rem;
+
   color: var(--muted);
+}
+
+.whatsapp-template li {
+  margin-bottom: 0.35rem;
 }
 
 .button-whatsapp {
   width: 100%;
+
   background: #20b85a;
   color: #ffffff;
+
+  border: 0;
+
+  font-size: 1rem;
 }
 
 .button-whatsapp:hover {
@@ -224,11 +323,55 @@ button,input,textarea{font:inherit}
 
 .contact-alternative {
   margin-top: 1rem !important;
+
   text-align: center;
-  font-size: .9rem;
+
+  color: var(--muted) !important;
+
+  font-size: 0.92rem !important;
 }
 
 .contact-alternative a {
   color: var(--navy);
-  font-weight: 800;
+  font-weight: 850;
+}
+
+/* =========================================================
+   RESPONSIVE DE CONTACTO
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-card-form {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-section {
+    padding: 4.5rem 0;
+  }
+
+  .contact-grid {
+    gap: 2rem;
+  }
+
+  .contact-card-form {
+    padding: 1.5rem;
+    border-radius: 22px;
+  }
+
+  .whatsapp-contact h3 {
+    max-width: none;
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .whatsapp-contact > p {
+    max-width: none;
+  }
 }
